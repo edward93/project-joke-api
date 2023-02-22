@@ -1,11 +1,10 @@
 import http from "http";
 import dotenv from "dotenv";
-
-import app, { port } from "./app";
-import { initSocketIoServer } from "./socket.io.server";
-
-// init dotenv
+// init dotenv. Should be above all other imports that use dotenv
 dotenv.config();
+
+import { initSocketIoServer } from "./socket.io.server";
+import app, { port } from "./app";
 
 // create the http server
 const server = http.createServer(app);

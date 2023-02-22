@@ -8,6 +8,7 @@ import { normalizePort } from "./utils/serverConfigHelper";
 import swaggerRouter from "./routes/swaggerRouter";
 
 const app: Express = express();
+
 export const port = normalizePort(process.env.PORT || 3000);
 
 app.use(cors());

@@ -1,4 +1,12 @@
-import { Game, PromptWhatTheySaid, PromptWhatWereTheyDoing, PromptWhere, PromptWho, PromptWhoSawThem, PromptWithWhom } from "./gameTypes";
+import {
+  Game,
+  PromptWhatTheySaid,
+  PromptWhatWereTheyDoing,
+  PromptWhere,
+  PromptWho,
+  PromptWhoSawThem,
+  PromptWithWhom,
+} from "./gameTypes";
 
 /**
  * CHecks if all players in the current game are ready
@@ -36,11 +44,13 @@ export const createGameSheets = (game: Game) => {
   // init the game sheets array if it's undefined
   if (!game.gameSheets) game.gameSheets = {};
 
+  const prompts = initPrompts();
+
   for (const id in game.players) {
     // let sheetIndex = 1;
     const player = game.players[id];
 
-    game.gameSheets[id] = { owner: id, prompts: [] };
+    game.gameSheets[id] = { owner: id, prompts };
   }
 
   // return
